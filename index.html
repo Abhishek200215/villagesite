@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#276749">
+    <meta name="description" content="ವೀರಪುರ ಗ್ರಾಮದ ಅಧಿಕೃತ ಡಿಜಿಟಲ್ ಮಾಧ್ಯಮ - ಸಮಗ್ರ ಮಾಹಿತಿ ಮತ್ತು ಸೇವೆಗಳು">
+    <title>ವೀರಪುರ ಗ್ರಾಮ - ನಮ್ಮ ಹಳ್ಳಿ ನಮ್ಮ ಹೆಮ್ಮೆ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏘️</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-icon">🏘️</div>
+            <div class="loading-text">ವೀರಪುರ ಗ್ರಾಮಕ್ಕೆ ಸುಸ್ವಾಗತ</div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🏘️</span>
+                    <div class="logo-text">
+                        <h1>ವೀರಪುರ ಗ್ರಾಮ</h1>
+                        <p>ನಮ್ಮ ಹಳ್ಳಿ ನಮ್ಮ ಹೆಮ್ಮೆ</p>
+                    </div>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> ಮುಖಪುಟ</a></li>
+                        <li><a href="#services" class="nav-link"><i class="fas fa-tools"></i> ಸೇವೆಗಳು</a></li>
+                        <li><a href="#market" class="nav-link"><i class="fas fa-seedling"></i> ಬೆಲೆಗಳು</a></li>
+                        <li><a href="#emergency" class="nav-link"><i class="fas fa-ambulance"></i> ತುರ್ತು</a></li>
+                        <li><a href="#jobs" class="nav-link"><i class="fas fa-briefcase"></i> ಕೆಲಸ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn btn-outline" onclick="toggleLanguage()">
+                        <i class="fas fa-language"></i> <span id="lang-btn">English</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="showAdminLogin()">
+                        <i class="fas fa-user-shield"></i> ನಿರ್ವಹಣೆ
+                    </button>
+                </div>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <h3>ನ್ಯಾವಿಗೇಷನ್</h3>
+            <button class="close-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="#home" onclick="toggleMobileMenu()"><i class="fas fa-home"></i> ಮುಖಪುಟ</a></li>
+            <li><a href="#services" onclick="toggleMobileMenu()"><i class="fas fa-tools"></i> ಸೇವೆಗಳು</a></li>
+            <li><a href="#market" onclick="toggleMobileMenu()"><i class="fas fa-seedling"></i> ಬೆಲೆಗಳು</a></li>
+            <li><a href="#emergency" onclick="toggleMobileMenu()"><i class="fas fa-ambulance"></i> ತುರ್ತು</a></li>
+            <li><a href="#jobs" onclick="toggleMobileMenu()"><i class="fas fa-briefcase"></i> ಕೆಲಸ</a></li>
+            <li><a href="#weather" onclick="toggleMobileMenu()"><i class="fas fa-cloud-sun"></i> ಹವಾಮಾನ</a></li>
+            <li><a href="#schemes" onclick="toggleMobileMenu()"><i class="fas fa-hand-holding-usd"></i> ಯೋಜನೆಗಳು</a></li>
+            <li><a href="#events" onclick="toggleMobileMenu()"><i class="fas fa-calendar-alt"></i> ಘಟನೆಗಳು</a></li>
+            <li><a href="#transport" onclick="toggleMobileMenu()"><i class="fas fa-bus"></i> ಸಾರಿಗೆ</a></li>
+            <li><a href="#tourist" onclick="toggleMobileMenu()"><i class="fas fa-landmark"></i> ಪ್ರವಾಸಿ</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <button class="btn btn-primary" onclick="showAdminLogin(); toggleMobileMenu()">
+                <i class="fas fa-user-shield"></i> ನಿರ್ವಹಣೆ ಪ್ರವೇಶ
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">ವೀರಪುರ ಗ್ರಾಮಕ್ಕೆ ಸುಸ್ವಾಗತ</h2>
+                    <p class="hero-subtitle">ನಿಮ್ಮ ಎಲ್ಲಾ ಗ್ರಾಮೀಣ ಮಾಹಿತಿ ಮತ್ತು ಸೇವೆಗಳು ಒಂದೇ ಜಾಗದಲ್ಲಿ</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1,250</div>
+                            <div class="stat-label">ಜನಸಂಖ್ಯೆ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">280</div>
+                            <div class="stat-label">ಮನೆಗಳು</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150</div>
+                            <div class="stat-label">ರೈತರು</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">ವ್ಯವಹಾರಗಳು</div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" onclick="startVoiceSearch()">
+                            <i class="fas fa-microphone"></i> ಮಾತಿನಿಂದ ಹುಡುಕಿ
+                        </button>
+                        <button class="btn btn-secondary btn-lg" onclick="scrollToSection('features')">
+                            <i class="fas fa-arrow-down"></i> ಮುಂದುವರಿಸಿ
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-village"></i>
+                        <div class="floating-icons">
+                            <div class="floating-icon"><i class="fas fa-tractor"></i></div>
+                            <div class="floating-icon"><i class="fas fa-tree"></i></div>
+                            <div class="floating-icon"><i class="fas fa-water"></i></div>
+                            <div class="floating-icon"><i class="fas fa-sun"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Bar -->
+    <div class="quick-access-bar">
+        <div class="container">
+            <div class="quick-access-items">
+                <a href="#market" class="quick-access-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <span>ಬೆಲೆಗಳು</span>
+                </a>
+                <a href="#emergency" class="quick-access-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>ತುರ್ತು</span>
+                </a>
+                <a href="#weather" class="quick-access-item">
+                    <i class="fas fa-cloud-sun-rain"></i>
+                    <span>ಹವಾಮಾನ</span>
+                </a>
+                <a href="#services" class="quick-access-item">
+                    <i class="fas fa-tools"></i>
+                    <span>ಸೇವೆಗಳು</span>
+                </a>
+                <a href="#schemes" class="quick-access-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>ಯೋಜನೆಗಳು</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಗ್ರಾಮ ಸೇವೆಗಳು</h2>
+                <p class="section-subtitle">ನಿಮಗೆ ಬೇಕಾದ ಎಲ್ಲಾ ಮಾಹಿತಿ ಮತ್ತು ಸೇವೆಗಳು</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1: Market Prices -->
+                <div class="feature-card" onclick="scrollToSection('market')">
+                    <div class="feature-icon price">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="feature-title">ಕೃಷಿ ಬೆಲೆಗಳು</h3>
+                    <p class="feature-description">ಇಂದಿನ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು ಮತ್ತು ಬೆಳೆ ಮಾಹಿತಿ</p>
+                    <div class="feature-badge">ನವೀಕರಣ</div>
+                </div>
+                
+                <!-- Feature 2: Emergency -->
+                <div class="feature-card" onclick="scrollToSection('emergency')">
+                    <div class="feature-icon emergency">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 class="feature-title">ತುರ್ತು ಸಂಪರ್ಕ</h3>
+                    <p class="feature-description">ಆಂಬ್ಯುಲೆನ್ಸ್, ಪೊಲೀಸ್, ಅಗ್ನಿಶಾಮಕ ಸಂಪರ್ಕಗಳು</p>
+                    <div class="feature-badge">24/7</div>
+                </div>
+                
+                <!-- Feature 3: Jobs -->
+                <div class="feature-card" onclick="scrollToSection('jobs')">
+                    <div class="feature-icon jobs">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="feature-title">ಕೆಲಸದ ಅವಕಾಶ</h3>
+                    <p class="feature-description">ದಿನಗೂಲಿ, ನಿರ್ಮಾಣ, ಕೃಷಿ ಕೆಲಸದ ಮಾಹಿತಿ</p>
+                    <div class="feature-badge">15+</div>
+                </div>
+                
+                <!-- Feature 4: Weather -->
+                <div class="feature-card" onclick="scrollToSection('weather')">
+                    <div class="feature-icon weather">
+                        <i class="fas fa-cloud-sun-rain"></i>
+                    </div>
+                    <h3 class="feature-title">ಹವಾಮಾನ ಮಾಹಿತಿ</h3>
+                    <p class="feature-description">ಮಳೆ, ತಾಪಮಾನ, ಕೃಷಿ ಸಲಹೆಗಳು</p>
+                    <div class="feature-status">
+                        <span class="status-dot active"></span>
+                        <span>ಲೈವ್</span>
+                    </div>
+                </div>
+                
+                <!-- Feature 5: Government Schemes -->
+                <div class="feature-card" onclick="scrollToSection('schemes')">
+                    <div class="feature-icon schemes">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="feature-title">ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು</h3>
+                    <p class="feature-description">ರೈತರಿಗೆ, ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ, ಮಹಿಳೆಯರಿಗೆ ಯೋಜನೆಗಳು</p>
+                    <div class="feature-badge">ನವೀನ</div>
+                </div>
+                
+                <!-- Feature 6: Local Services -->
+                <div class="feature-card" onclick="scrollToSection('services')">
+                    <div class="feature-icon services">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">ಸ್ಥಳೀಯ ಸೇವೆಗಳು</h3>
+                    <p class="feature-description">ವಿದ್ಯುತ್, ಪ್ಲಂಬಿಂಗ್, ಸಾರಿಗೆ, ಇತರ ಸೇವೆಗಳು</p>
+                    <div class="feature-badge">50+</div>
+                </div>
+                
+                <!-- Feature 7: Transport -->
+                <div class="feature-card" onclick="scrollToSection('transport')">
+                    <div class="feature-icon transport">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3 class="feature-title">ಸಾರಿಗೆ ವೇಳಾಪಟ್ಟಿ</h3>
+                    <p class="feature-description">ಬಸ್, ಆಟೋ, ಇತರ ಸಾರಿಗೆ ಮಾಹಿತಿ</p>
+                </div>
+                
+                <!-- Feature 8: Events -->
+                <div class="feature-card" onclick="scrollToSection('events')">
+                    <div class="feature-icon events">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="feature-title">ಗ್ರಾಮ ಘಟನೆಗಳು</h3>
+                    <p class="feature-description">ಹಬ್ಬ, ಸಭೆ, ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Prices Section -->
+    <section class="section-market" id="market">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಕೃಷಿ ಬೆಲೆಗಳು</h2>
+                <p class="section-subtitle">ಇಂದಿನ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು - ನವೀಕರಣ: ಇಂದು</p>
+            </div>
+            
+            <div class="market-filters">
+                <select class="filter-select" id="market-filter">
+                    <option value="all">ಎಲ್ಲಾ ಬೆಳೆಗಳು</option>
+                    <option value="rice">ಭತ್ತ</option>
+                    <option value="sugarcane">ಕಬ್ಬು</option>
+                    <option value="cotton">ಹತ್ತಿ</option>
+                    <option value="vegetables">ತರಕಾರಿ</option>
+                </select>
+                <input type="date" class="date-input" id="price-date">
+                <button class="btn btn-primary" onclick="filterPrices()">
+                    <i class="fas fa-search"></i> ಹುಡುಕಿ
+                </button>
+            </div>
+            
+            <div class="prices-table-container">
+                <table class="prices-table">
+                    <thead>
+                        <tr>
+                            <th>ಬೆಳೆ</th>
+                            <th>ಬೆಲೆ (₹/100kg)</th>
+                            <th>ಮಾರುಕಟ್ಟೆ</th>
+                            <th>ಟ್ರೆಂಡ್</th>
+                            <th>ದಿನಾಂಕ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prices-table-body">
+                        <!-- Prices loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section-footer">
+                <button class="btn btn-outline" onclick="showMorePrices()">
+                    <i class="fas fa-arrow-down"></i> ಇನ್ನಷ್ಟು ಬೆಲೆಗಳು
+                </button>
+                <p class="update-info">ಬೆಲೆಗಳು ಪ್ರತಿದಿನ ಬೆಳಗ್ಗೆ 10:00ಗೆ ನವೀಕರಿಸಲಾಗುವುದು</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="section-emergency" id="emergency">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ತುರ್ತು ಸಂಪರ್ಕಗಳು</h2>
+                <p class="section-subtitle">ತುರ್ತು ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ತಕ್ಷಣ ಸಂಪರ್ಕಿಸಿ</p>
+            </div>
+            
+            <div class="emergency-grid">
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>ಆಂಬ್ಯುಲೆನ್ಸ್</h3>
+                    <div class="emergency-number">108</div>
+                    <p>24 ಗಂಟೆ ಉಚಿತ ಸೇವೆ</p>
+                    <button class="btn btn-emergency" onclick="callEmergency('108')">
+                        <i class="fas fa-phone-alt"></i> ಕರೆ ಮಾಡಿ
+                    </button>
+                </div>
+                
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ಪೊಲೀಸ್</h3>
+                    <div class="emergency-number">100</div>
+                    <p>ತುರ್ತು ಪೊಲೀಸ್ ಸಹಾಯ</p>
+                    <button class="btn btn-emergency" onclick="callEmergency('100')">
+                        <i class="fas fa-phone-alt"></i> ಕರೆ ಮಾಡಿ
+                    </button>
+                </div>
+                
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3>ಅಗ್ನಿಶಾಮಕ</h3>
+                    <div class="emergency-number">101</div>
+                    <p>ಅಗ್ನಿ ಅಪಘಾತ ಸಹಾಯ</p>
+                    <button class="btn btn-emergency" onclick="callEmergency('101')">
+                        <i class="fas fa-phone-alt"></i> ಕರೆ ಮಾಡಿ
+                    </button>
+                </div>
+                
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>ಗ್ರಾಮ ವೈದ್ಯರು</h3>
+                    <div class="emergency-number">9880012345</div>
+                    <p>ಡಾ. ರಾಮೇಶ್</p>
+                    <div class="emergency-actions">
+                        <button class="btn btn-outline" onclick="callEmergency('9880012345')">
+                            <i class="fas fa-phone-alt"></i> ಕರೆ
+                        </button>
+                        <button class="btn btn-outline" onclick="whatsappEmergency('9880012345')">
+                            <i class="fab fa-whatsapp"></i> ವಾಟ್ಸಾಪ್
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="local-contacts">
+                <h3 class="local-contacts-title">ಸ್ಥಳೀಯ ತುರ್ತು ಸಂಪರ್ಕಗಳು</h3>
+                <div class="local-contacts-grid" id="local-contacts">
+                    <!-- Local contacts loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಸ್ಥಳೀಯ ಸೇವೆಗಳು</h2>
+                <p class="section-subtitle">ನಿಮಗೆ ಬೇಕಾದ ಸೇವೆ ಮತ್ತು ವ್ಯಕ್ತಿಯ ಸಂಪರ್ಕ ಮಾಹಿತಿ</p>
+            </div>
+            
+            <div class="services-categories">
+                <button class="category-btn active" data-category="all">ಎಲ್ಲಾ</button>
+                <button class="category-btn" data-category="electrician">ವಿದ್ಯುತ್</button>
+                <button class="category-btn" data-category="plumber">ಪ್ಲಂಬಿಂಗ್</button>
+                <button class="category-btn" data-category="transport">ಸಾರಿಗೆ</button>
+                <button class="category-btn" data-category="agriculture">ಕೃಷಿ</button>
+                <button class="category-btn" data-category="other">ಇತರೆ</button>
+            </div>
+            
+            <div class="services-grid" id="services-grid">
+                <!-- Services loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="section-weather" id="weather">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಹವಾಮಾನ ಮಾಹಿತಿ</h2>
+                <p class="section-subtitle">ವೀರಪುರ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಹವಾಮಾನ</p>
+            </div>
+            
+            <div class="weather-container">
+                <div class="weather-main">
+                    <div class="weather-current">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-info">
+                            <div class="weather-temp">32°C</div>
+                            <div class="weather-desc">ಬಿಸಿಲಿನ ಹವಾಮಾನ</div>
+                            <div class="weather-location">ವೀರಪುರ, ಹಾವೇರಿ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <div class="detail-label">ಗಾಳಿ ವೇಗ</div>
+                                <div class="detail-value">12 km/h</div>
+                            </div>
+                        </div>
+                        <div class="weather-detail">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <div class="detail-label">ಆರ್ದ್ರತೆ</div>
+                                <div class="detail-value">65%</div>
+                            </div>
+                        </div>
+                        <div class="weather-detail">
+                            <i class="fas fa-cloud-rain"></i>
+                            <div>
+                                <div class="detail-label">ಮಳೆ ಸಾಧ್ಯತೆ</div>
+                                <div class="detail-value">30%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-forecast">
+                    <h3 class="forecast-title">ಮುಂದಿನ 3 ದಿನಗಳು</h3>
+                    <div class="forecast-days">
+                        <div class="forecast-day">
+                            <div class="day-name">ನಾಳೆ</div>
+                            <div class="day-icon"><i class="fas fa-cloud-sun"></i></div>
+                            <div class="day-temp">28° - 34°</div>
+                        </div>
+                        <div class="forecast-day">
+                            <div class="day-name">ನಾಡಿದ್ದು</div>
+                            <div class="day-icon"><i class="fas fa-cloud-rain"></i></div>
+                            <div class="day-temp">26° - 32°</div>
+                        </div>
+                        <div class="forecast-day">
+                            <div class="day-name">ಮರುದಿನ</div>
+                            <div class="day-icon"><i class="fas fa-cloud"></i></div>
+                            <div class="day-temp">27° - 33°</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-alert">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>ಕೃಷಿ ಸಲಹೆ</h4>
+                        <p>ಬಿಸಿಲಿನ ಹವಾಮಾನದಿಂದಾಗಿ ಬೆಳೆಗಳಿಗೆ ಸಂಜೆ ನೀರಾವರಿ ನೀಡಲು ಸೂಚಿಸಲಾಗುತ್ತದೆ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="section-jobs" id="jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಕೆಲಸದ ಅವಕಾಶಗಳು</h2>
+                <p class="section-subtitle">ಲಭ್ಯವಿರುವ ದಿನಗೂಲಿ ಮತ್ತು ಸ್ಥಿರ ಕೆಲಸಗಳು</p>
+            </div>
+            
+            <div class="jobs-container">
+                <div class="job-filters">
+                    <select class="filter-select" id="job-type">
+                        <option value="all">ಎಲ್ಲಾ ಕೆಲಸಗಳು</option>
+                        <option value="daily">ದಿನಗೂಲಿ</option>
+                        <option value="construction">ನಿರ್ಮಾಣ</option>
+                        <option value="agriculture">ಕೃಷಿ</option>
+                        <option value="other">ಇತರೆ</option>
+                    </select>
+                    <select class="filter-select" id="job-location">
+                        <option value="all">ಎಲ್ಲಾ ಸ್ಥಳಗಳು</option>
+                        <option value="village">ಗ್ರಾಮದಲ್ಲಿ</option>
+                        <option value="nearby">ಹತ್ತಿರದಲ್ಲಿ</option>
+                    </select>
+                </div>
+                
+                <div class="jobs-list" id="jobs-list">
+                    <!-- Jobs loaded by JavaScript -->
+                </div>
+                
+                <div class="jobs-contact">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>ಕೆಲಸದ ಮಾಹಿತಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ</h4>
+                            <p>ಗ್ರಾಮ ರೋಜಗಾರಿ ಕೇಂದ್ರ, ವೀರಪುರ</p>
+                            <div class="contact-number">9880012345</div>
+                        </div>
+                        <div class="contact-actions">
+                            <button class="btn btn-primary" onclick="callEmergency('9880012345')">
+                                <i class="fas fa-phone-alt"></i> ಕರೆ ಮಾಡಿ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Schemes -->
+    <section class="section-schemes" id="schemes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು</h2>
+                <p class="section-subtitle">ರೈತರು, ವಿದ್ಯಾರ್ಥಿಗಳು, ಮಹಿಳೆಯರಿಗೆ ಅನುಭೋಗಿ ಯೋಜನೆಗಳು</p>
+            </div>
+            
+            <div class="schemes-grid">
+                <div class="scheme-card">
+                    <div class="scheme-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>ರೈತ ಸಂಭಾವ್ಯ ಯೋಜನೆ</h3>
+                    <p>ರೈತರಿಗೆ ವಾರ್ಷಿಕ ₹6000 ಸಹಾಯಧನ</p>
+                    <div class="scheme-status">
+                        <span class="status-badge open">ಅರ್ಜಿ ಸಲ್ಲಿಕೆ ತೆರೆದಿದೆ</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showSchemeDetails('pmkisan')">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</button>
+                </div>
+                
+                <div class="scheme-card">
+                    <div class="scheme-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>ವಿದ್ಯಾರ್ಥಿ ವೇತನ</h3>
+                    <p>10ನೇ ತರಗತಿ ಉತ್ತೀರ್ಣರಿಗೆ ₹5000 ವೇತನ</p>
+                    <div class="scheme-status">
+                        <span class="status-badge open">ಅರ್ಜಿ ಸಲ್ಲಿಕೆ ತೆರೆದಿದೆ</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showSchemeDetails('scholarship')">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</button>
+                </div>
+                
+                <div class="scheme-card">
+                    <div class="scheme-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>ಮಹಿಳಾ ಶಕ್ತಿ</h3>
+                    <p>ಮಹಿಳಾ ಸ್ವಯಂ ಸಹಾಯಕ ಗುಂಪುಗಳಿಗೆ ಸಾಲ</p>
+                    <div class="scheme-status">
+                        <span class="status-badge open">ಅರ್ಜಿ ಸಲ್ಲಿಕೆ ತೆರೆದಿದೆ</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showSchemeDetails('womenshaki')">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</button>
+                </div>
+                
+                <div class="scheme-card">
+                    <div class="scheme-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>ಗ್ರಾಮೀಣ ಮನೆ ಯೋಜನೆ</h3>
+                    <p>ಬಡವರಿಗೆ ಮನೆ ನಿರ್ಮಾಣ ಸಹಾಯಧನ</p>
+                    <div class="scheme-status">
+                        <span class="status-badge closed">ಅರ್ಜಿ ಸಲ್ಲಿಕೆ ಮುಚ್ಚಿದೆ</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showSchemeDetails('ruralhouse')">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section-events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಗ್ರಾಮ ಘಟನೆಗಳು</h2>
+                <p class="section-subtitle">ಮುಂಬರುವ ಹಬ್ಬ, ಸಭೆ ಮತ್ತು ಕಾರ್ಯಕ್ರಮಗಳು</p>
+            </div>
+            
+            <div class="events-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <div class="date-day">20</div>
+                        <div class="date-month">ಜನವರಿ</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>ವಾರ್ಷಿಕ ಹಳ್ಳಿ ಉತ್ಸವ</h3>
+                        <p>ಗ್ರಾಮ ಮೈದಾನ, ಬೆಳಿಗ್ಗೆ 10:00</p>
+                        <div class="event-tags">
+                            <span class="event-tag">ಹಬ್ಬ</span>
+                            <span class="event-tag">ಸಾಂಸ್ಕೃತಿಕ</span>
+                        </div>
+                    </div>
+                    <div class="timeline-actions">
+                        <button class="btn btn-outline">ವಿವರಗಳು</button>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <div class="date-day">25</div>
+                        <div class="date-month">ಜನವರಿ</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>ಗ್ರಾಮ ಸಭೆ</h3>
+                        <p>ಪಂಚಾಯತ್ ಕಚೇರಿ, ಮಧ್ಯಾಹ್ನ 3:00</p>
+                        <div class="event-tags">
+                            <span class="event-tag">ಸಭೆ</span>
+                            <span class="event-tag">ಪ್ರಶ್ನೆ-ಉತ್ತರ</span>
+                        </div>
+                    </div>
+                    <div class="timeline-actions">
+                        <button class="btn btn-outline">ವಿವರಗಳು</button>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <div class="date-day">30</div>
+                        <div class="date-month">ಜನವರಿ</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>ಕೃಷಿ ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮ</h3>
+                        <p>ಕೃಷಿ ಕಚೇರಿ, ಬೆಳಿಗ್ಗೆ 11:00</p>
+                        <div class="event-tags">
+                            <span class="event-tag">ತರಬೇತಿ</span>
+                            <span class="event-tag">ಕೃಷಿ</span>
+                        </div>
+                    </div>
+                    <div class="timeline-actions">
+                        <button class="btn btn-outline">ವಿವರಗಳು</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport Section -->
+    <section class="section-transport" id="transport">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಸಾರಿಗೆ ವೇಳಾಪಟ್ಟಿ</h2>
+                <p class="section-subtitle">ಬಸ್ ಮತ್ತು ಆಟೋ ಸಾರಿಗೆ ಮಾಹಿತಿ</p>
+            </div>
+            
+            <div class="transport-container">
+                <div class="transport-tabs">
+                    <button class="transport-tab active" data-type="bus">ಬಸ್</button>
+                    <button class="transport-tab" data-type="auto">ಆಟೋ</button>
+                    <button class="transport-tab" data-type="train">ಟ್ರೈನ್</button>
+                </div>
+                
+                <div class="transport-schedule" id="bus-schedule">
+                    <div class="schedule-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ಸಮಯ</th>
+                                    <th>ಇಂದ</th>
+                                    <th>ಗೆ</th>
+                                    <th>ಬಸ್ ಸಂಖ್ಯೆ</th>
+                                    <th>ವೇಳೆ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>06:00 AM</td>
+                                    <td>ವೀರಪುರ</td>
+                                    <td>ಹಿರೇಕೇರೂರು</td>
+                                    <td>KA-25-A-1234</td>
+                                    <td>ದಿನನಿತ್ಯ</td>
+                                </tr>
+                                <tr>
+                                    <td>08:30 AM</td>
+                                    <td>ವೀರಪುರ</td>
+                                    <td>ಹಾವೇರಿ</td>
+                                    <td>KA-25-B-5678</td>
+                                    <td>ದಿನನಿತ್ಯ</td>
+                                </tr>
+                                <tr>
+                                    <td>02:00 PM</td>
+                                    <td>ಹಾವೇರಿ</td>
+                                    <td>ವೀರಪುರ</td>
+                                    <td>KA-25-B-5678</td>
+                                    <td>ದಿನನಿತ್ಯ</td>
+                                </tr>
+                                <tr>
+                                    <td>05:30 PM</td>
+                                    <td>ಹಿರೇಕೇರೂರು</td>
+                                    <td>ವೀರಪುರ</td>
+                                    <td>KA-25-A-1234</td>
+                                    <td>ದಿನನಿತ್ಯ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist Places -->
+    <section class="section-tourist" id="tourist">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ಪ್ರವಾಸಿ ಸ್ಥಳಗಳು</h2>
+                <p class="section-subtitle">ವೀರಪುರ ಮತ್ತು ಹತ್ತಿರದ ಪ್ರವಾಸಿ ಆಕರ್ಷಣೆಗಳು</p>
+            </div>
+            
+            <div class="tourist-grid">
+                <div class="tourist-card">
+                    <div class="tourist-image">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="tourist-content">
+                        <h3>ಅನ್ನಪೂರ್ಣೇಶ್ವರಿ ದೇವಸ್ಥಾನ</h3>
+                        <p>200 ವರ್ಷ ಹಳೆಯ ಇತಿಹಾಸಕ ದೇವಸ್ಥಾನ</p>
+                        <div class="tourist-meta">
+                            <span><i class="fas fa-road"></i> 0.5 km</span>
+                            <span><i class="fas fa-clock"></i> 6 AM - 8 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tourist-card">
+                    <div class="tourist-image">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="tourist-content">
+                        <h3>ವೀರಪುರ ಕೆರೆ</h3>
+                        <p>ಸುಂದರ ನಿಸರ್ಗ ದೃಶ್ಯ ಮತ್ತು ಪಕ್ಷಿ ನಿರೀಕ್ಷಣೆ</p>
+                        <div class="tourist-meta">
+                            <span><i class="fas fa-road"></i> 2 km</span>
+                            <span><i class="fas fa-clock"></i> 5 AM - 7 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements -->
+    <div class="announcement-bar">
+        <div class="container">
+            <div class="announcement-content">
+                <div class="announcement-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="announcement-text" id="announcement-text">
+                    ಗಮನಿಸಿ: ಜನವರಿ 20ರಂದು ಹಳ್ಳಿ ಉತ್ಸವ ನಡೆಯಲಿದೆ. ಎಲ್ಲರೂ ಹಾಜರಾಗಲು ವಿನಂತಿ.
+                </div>
+                <button class="announcement-close" onclick="closeAnnouncement()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🏘️</span>
+                        <div class="logo-text">
+                            <h3>ವೀರಪುರ ಗ್ರಾಮ</h3>
+                            <p>ನಮ್ಮ ಹಳ್ಳಿ ನಮ್ಮ ಹೆಮ್ಮೆ</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        ವೀರಪುರ ಗ್ರಾಮದ ಸಮಗ್ರ ಡಿಜಿಟಲ್ ಮಾಧ್ಯಮ. ಎಲ್ಲಾ ಗ್ರಾಮೀಣ ಮಾಹಿತಿ ಮತ್ತು ಸೇವೆಗಳು ಒಂದೇ ಜಾಗದಲ್ಲಿ.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>ಪ್ರಮುಖ ಲಿಂಕ್ಗಳು</h4>
+                    <ul class="footer-links">
+                        <li><a href="#market"><i class="fas fa-chevron-right"></i> ಕೃಷಿ ಬೆಲೆಗಳು</a></li>
+                        <li><a href="#emergency"><i class="fas fa-chevron-right"></i> ತುರ್ತು ಸಂಪರ್ಕ</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> ಸ್ಥಳೀಯ ಸೇವೆಗಳು</a></li>
+                        <li><a href="#jobs"><i class="fas fa-chevron-right"></i> ಕೆಲಸದ ಅವಕಾಶ</a></li>
+                        <li><a href="#schemes"><i class="fas fa-chevron-right"></i> ಯೋಜನೆಗಳು</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>ಸಂಪರ್ಕ ಮಾಹಿತಿ</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> ವೀರಪುರ ಗ್ರಾಮ, ಹಿರೇಕೇರೂರು ತಾಲ್ಲೂಕು, ಹಾವೇರಿ ಜಿಲ್ಲೆ</p>
+                        <p><i class="fas fa-phone-alt"></i> ಗ್ರಾಮ ಸೇವಕ: 9480012345</p>
+                        <p><i class="fas fa-envelope"></i> veerapuragram@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> ಸೇವೆ ಸಮಯ: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್ಲೋಡ್ ಮಾಡಿ</h4>
+                    <p>ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಬಳಸಿ</p>
+                    <button class="btn btn-primary" id="install-app-btn">
+                        <i class="fas fa-download"></i> ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಿ
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ವೀರಪುರ ಗ್ರಾಮ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯಲಾಗಿದೆ.</p>
+                <p>ಈ ವೆಬ್‌ಸೈಟ್ ಗ್ರಾಮಸ್ಥರ ಸೇವೆಗಾಗಿ ಮಾತ್ರ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="admin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>ನಿರ್ವಹಣಾ ಪ್ರವೇಶ</h3>
+                <button class="modal-close" onclick="closeAdminModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login-tabs">
+                    <button class="login-tab active" onclick="showLoginType('villager')">ಗ್ರಾಮಸ್ಥರು</button>
+                    <button class="login-tab" onclick="showLoginType('admin')">ನಿರ್ವಾಹಕರು</button>
+                </div>
+                
+                <div class="login-form" id="villager-form">
+                    <p>ನಿಮ್ಮ ಹೆಸರು ನಮೂದಿಸಿ (ಲಾಗಿನ್ ಅಗತ್ಯವಿಲ್ಲ)</p>
+                    <div class="form-group">
+                        <input type="text" id="villager-name-input" placeholder="ನಿಮ್ಮ ಹೆಸರು" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" onclick="setVillagerName()">
+                        <i class="fas fa-check"></i> ಸಂಗ್ರಹಿಸಿ
+                    </button>
+                </div>
+                
+                <div class="login-form hidden" id="admin-form">
+                    <p>ನಿರ್ವಾಹಕ ಪ್ರವೇಶಕ್ಕೆ ಕೋಡ್ ನಮೂದಿಸಿ</p>
+                    <div class="form-group">
+                        <input type="password" id="admin-code-input" placeholder="6-ಅಂಕಿಯ ಕೋಡ್" class="form-control" maxlength="6">
+                    </div>
+                    <button class="btn btn-primary" onclick="adminLogin()">
+                        <i class="fas fa-lock"></i> ಲಾಗಿನ್
+                    </button>
+                    <p class="hint-text">ಗ್ರಾ�ಮ ಪ್ರಧಾನರಿಂದ ಕೋಡ್ ಪಡೆದುಕೊಳ್ಳಿ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal" id="admin-panel-modal">
+        <div class="modal-content admin-panel">
+            <div class="modal-header">
+                <h3>ನಿರ್ವಹಣಾ ಪ್ಯಾನೆಲ್</h3>
+                <button class="modal-close" onclick="closeAdminPanelModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-tabs" id="admin-panel-tabs">
+                    <!-- Tabs loaded by JavaScript -->
+                </div>
+                <div class="admin-content" id="admin-panel-content">
+                    <!-- Content loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Search Modal -->
+    <div class="modal" id="voice-modal">
+        <div class="modal-content voice-modal">
+            <div class="modal-header">
+                <h3>ಮಾತಿನಿಂದ ಹುಡುಕಿ</h3>
+                <button class="modal-close" onclick="closeVoiceModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="voice-status" id="voice-status">
+                    <div class="voice-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <p>ಕೆಳಗಿನ ಬಟನ್ ಒತ್ತಿ ಮತ್ತು ಮಾತನಾಡಿ</p>
+                </div>
+                <div class="voice-result" id="voice-result-display"></div>
+                <div class="voice-actions">
+                    <button class="btn btn-primary btn-lg" onclick="startVoiceRecognition()" id="voice-start-btn">
+                        <i class="fas fa-microphone"></i> ಮಾತನಾಡಿ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab" onclick="showVoiceModal()">
+            <i class="fas fa-microphone"></i>
+        </button>
+        <button class="fab fab-secondary" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <button class="fab fab-tertiary" onclick="shareApp()">
+            <i class="fas fa-share-alt"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Add this in your index.html -->
+<script src="realtime.js"></script>
+</body>
+</html>
